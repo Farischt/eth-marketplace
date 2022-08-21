@@ -15,6 +15,7 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@typescript-eslint/eslint-plugin": "^latest",
@@ -25,8 +26,10 @@
     "husky": "latest",
     "postcss": "latest",
     "prettier": "latest",
+    "prettier-plugin-solidity": "^1.0.0-beta.24",
     "prettier-plugin-tailwindcss": "latest",
     "tailwindcss": "latest",
+    "truffle": "^5.5.27",
     "typescript": "latest"
   }
 }
