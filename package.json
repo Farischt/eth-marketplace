@@ -5,6 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "yarn tsc --noEmit && next lint && yarn eslint . && yarn prettier --write .",
+    "lint:solidity": "yarn solhint -f table contracts/**/*.sol",
     "prettier": "prettier --write .",
     "prepare": "husky install"
   },
@@ -28,6 +29,8 @@
     "prettier": "latest",
     "prettier-plugin-solidity": "^1.0.0-beta.24",
     "prettier-plugin-tailwindcss": "latest",
+    "solhint": "^3.3.7",
+    "solhint-plugin-prettier": "^0.0.5",
     "tailwindcss": "latest",
     "truffle": "^5.5.27",
     "typescript": "latest"

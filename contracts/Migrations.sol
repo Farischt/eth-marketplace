@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// solhint-disable-next-line
 pragma solidity >=0.4.22 <0.9.0;
 
 contract Migrations {
