@@ -9,8 +9,10 @@ type Props = {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Navbar />
-      {children}
+      <div className="mx-auto max-w-7xl px-4">
+        <Navbar />
+        <div className="fit">{children}</div>
+      </div>
       <Footer />
     </>
   )

@@ -1,33 +1,41 @@
-const CourseList: React.FC = () => {
+import Image from "next/image"
+import Link from "next/link"
+
+import type { CourseBaseData } from "types"
+
+type Props = {
+  courses: CourseBaseData[]
+}
+
+const CourseList: React.FC<Props> = ({ courses }) => {
   return (
-    <section className="mb-5 grid grid-cols-2 gap-4">
-      {Array.from({ length: 4 }).map((_, i) => (
+    <section className="mb-5 grid gap-4 md:grid-cols-1 lg:grid-cols-2">
+      {courses.map((course) => (
         <div
-          key={i}
+          key={course.id}
           className="overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl"
         >
-          <div className="md:flex">
-            <div className="md:flex-shrink-0">
-              <img
-                className="h-48 w-full object-cover md:w-48"
-                src="https://images.unsplash.com/photo-1515711660811-48832a4c6f69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
-                alt="Man looking at item at a store"
+          <div className="flex h-full">
+            <div className="flex h-full">
+              <Image
+                className="object-cover"
+                src={course.coverImage}
+                layout={"fixed"}
+                width={200}
+                height={230}
+                alt={course.title}
               />
             </div>
             <div className="p-8">
               <div className="text-sm font-semibold uppercase tracking-wide text-indigo-500">
-                Case study
+                {course.type}
               </div>
-              <a
-                href="#"
-                className="mt-1 block text-lg font-medium leading-tight text-black hover:underline"
-              >
-                Finding customers for your new business
-              </a>
-              <p className="mt-2 text-gray-500">
-                Getting a new business off the ground is a lot of hard work.
-                Here are five ideas you can use to find your first customers.
-              </p>
+              <Link href="/courses/[slug]" as={`/courses/${course.slug}`}>
+                <a className="mt-1 block text-lg font-medium leading-tight text-black hover:underline">
+                  {course.title}
+                </a>
+              </Link>
+              <p className="mt-2 text-gray-500">{course.description}</p>
             </div>
           </div>
         </div>

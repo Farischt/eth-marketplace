@@ -1,8 +1,17 @@
+const lectures = [
+  "How to init App",
+  "How to get a help",
+  "Introduction to Solidity",
+  "Programing in C++",
+  "How to write For Loops",
+  "Safe operator",
+]
+
 type Props = {
-  lectures: any[]
+  locked: boolean
 }
 
-const CourseCurriculum: React.FC<Props> = ({ lectures }) => {
+const CourseCurriculum: React.FC<Props> = ({ locked }) => {
   return (
     <section className="mx-auto max-w-5xl">
       <div className="flex flex-col">
@@ -42,8 +51,14 @@ const CourseCurriculum: React.FC<Props> = ({ lectures }) => {
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
-                        <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                          Unlocked
+                        <span
+                          className={`${
+                            locked
+                              ? "bg-red-100 text-red-800"
+                              : "bg-green-100 text-green-800"
+                          } inline-flex rounded-full px-2 text-xs font-semibold leading-5`}
+                        >
+                          {locked ? "Locked" : "Unlocked"}
                         </span>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
@@ -51,7 +66,7 @@ const CourseCurriculum: React.FC<Props> = ({ lectures }) => {
                           href="#"
                           className="text-indigo-600 hover:text-indigo-900"
                         >
-                          Play
+                          {locked ? "Get access" : "Play"}
                         </a>
                       </td>
                     </tr>
