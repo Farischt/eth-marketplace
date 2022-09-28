@@ -3,8 +3,8 @@ import {
   CourseCurriculum,
   CourseHero,
   CourseKeyPoints,
-} from "components/course"
-import { Layout, Modal } from "components/common"
+} from "components/ui/course"
+import { Layout, Modal } from "components/ui/common"
 import { getAllCourses } from "data/courses/fetcher"
 import { CourseBaseData } from "types"
 
